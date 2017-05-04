@@ -9,10 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 class GeniusController
 {
     /**
-     * @Route("/genius")
+     * @Route("/article/{articleName}")
      */
-    public function showAction()
+    public function showAction($articleName)
     {
-        return new Response("Hello, World!");
+        return new Response('The Article is ' . $articleName);
     }
 }
