@@ -2,17 +2,19 @@
 
 namespace AppBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
-
-class GeniusController
+class GenusController extends Controller
 {
     /**
-     * @Route("/article/{articleName}")
+     * @Route("/genus/{genusName}")
      */
-    public function showAction($articleName)
+    public function showAction($genusName)
     {
-        return new Response('The Article is ' . $articleName);
+        $templating = $this->container->get('templating');
+        $html = $templating->render('genus/show.html.twig', array(
+            'name' => $genusName
+        ));
+        return new Response($html);
     }
 }
